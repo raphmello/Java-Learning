@@ -1,14 +1,14 @@
 package com.company;
 
 import java.util.Collections;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class StockList {
     private final Map<String,StockItem> list;
 
     public StockList() {
-        this.list = new HashMap<>();
+        this.list = new LinkedHashMap<>();
     }
 
     public int addStock(StockItem item) {
@@ -62,7 +62,7 @@ public class StockList {
             double itemValue = list.get(item).getPrice() * list.get(item).quantityInStock();
 
             s = s + list.get(item) +". There are " + list.get(item).quantityInStock() + " in stock. Value of items: ";
-            s = s + itemValue + "\n";
+            s = s + String.format("%.2f" ,itemValue) + "\n";
             totalCost += itemValue;
         }
 //        System.out.println(s + "Total stock value " + totalCost);
